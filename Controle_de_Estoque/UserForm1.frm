@@ -1,20 +1,3 @@
-VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} UserForm1 
-   ClientHeight    =   9075
-   ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   14535
-   OleObjectBlob   =   "UserForm1.frx":0000
-   StartUpPosition =   2  'CenterScreen
-End
-Attribute VB_Name = "UserForm1"
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = True
-Attribute VB_Exposed = False
-
-
-
 Private Sub UserForm_Initialize()
 Application.Visible = False
 
@@ -22,17 +5,17 @@ limpar2
 atualizacombos
 atualizalista
 
-With TabelaDeMovimentaÁıes
+With TabelaDeMovimenta√ß√µes
     .BorderStyle = ccFixedSingle
     .Gridlines = True
     .View = lvwReport
     .ColumnHeaders.Add Text:="Item", Width:=190
-    .ColumnHeaders.Add Text:="MovimentaÁ„o", Width:=50, Alignment:=2
+    .ColumnHeaders.Add Text:="Movimenta√ß√£o", Width:=50, Alignment:=2
     .ColumnHeaders.Add Text:="Quantidade", Width:=50, Alignment:=2
     .ColumnHeaders.Add Text:="Lote", Width:=60, Alignment:=2
     .ColumnHeaders.Add Text:="Validade", Width:=60, Alignment:=2
-    .ColumnHeaders.Add Text:="C‚mara", Width:=60, Alignment:=2
-    .ColumnHeaders.Add Text:="Data de movimentaÁ„o", Width:=125, Alignment:=2
+    .ColumnHeaders.Add Text:="C√¢mara", Width:=60, Alignment:=2
+    .ColumnHeaders.Add Text:="Data de movimenta√ß√£o", Width:=125, Alignment:=2
     .ColumnHeaders.Add Text:="ID", Width:=61, Alignment:=2
 
 End With
@@ -42,7 +25,7 @@ With ListView_Estoque
     .Gridlines = True
     .View = lvwReport
     .ColumnHeaders.Add Text:="Produtos", Width:=259
-    .ColumnHeaders.Add Text:="C‚maras", Width:=79, Alignment:=2
+    .ColumnHeaders.Add Text:="C√¢maras", Width:=79, Alignment:=2
 End With
 
 With TabelaDeInventario
@@ -53,7 +36,7 @@ With TabelaDeInventario
     .ColumnHeaders.Add Text:="Lote", Width:=80, Alignment:=2
     .ColumnHeaders.Add Text:="Validade", Width:=80, Alignment:=2
     .ColumnHeaders.Add Text:="Prazo", Width:=80, Alignment:=2
-    .ColumnHeaders.Add Text:="C‚mara", Width:=80, Alignment:=2
+    .ColumnHeaders.Add Text:="C√¢mara", Width:=80, Alignment:=2
     .ColumnHeaders.Add Text:="Quantidade (Kg)", Width:=77, Alignment:=2
 End With
 End Sub
@@ -72,60 +55,60 @@ End Sub
 
 '============================================================================================================
 '============================================================================================================
-'=================================================BOT’ES=====================================================
+'=================================================BOT√ïES=====================================================
 '============================================================================================================
 '============================================================================================================
 Private Sub InventaPrazo1_Click()
-Worksheets("Invent·rio").Select
+Worksheets("Invent√°rio").Select
 
     ActiveSheet.ListObjects("Tabela2").Range.AutoFilter Field:=4, Criteria1:= _
         ">6", Operator:=xlAnd, Criteria2:="<=10"
         
-Sheets("Invent·rio").Select
+Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-         li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
 colorir_list
 End Sub
 Private Sub InventaPrazo2_Click()
-Worksheets("Invent·rio").Select
+Worksheets("Invent√°rio").Select
 
     ActiveSheet.ListObjects("Tabela2").Range.AutoFilter Field:=4, Criteria1:= _
         ">=4", Operator:=xlAnd, Criteria2:="<=6"
         
-Sheets("Invent·rio").Select
+Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-         li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
@@ -133,28 +116,28 @@ colorir_list
 End Sub
 
 Private Sub InventaPrazo3_Click()
-Worksheets("Invent·rio").Select
+Worksheets("Invent√°rio").Select
 
     ActiveSheet.ListObjects("Tabela2").Range.AutoFilter Field:=4, Criteria1:= _
         ">0", Operator:=xlAnd, Criteria2:="<4"
         
-Sheets("Invent·rio").Select
+Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-         li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
@@ -163,37 +146,37 @@ End Sub
 
 Private Sub Classificar2_Click()
 On Error GoTo en2
-Worksheets("Invent·rio").Select
+Worksheets("Invent√°rio").Select
     Range("D2").Select
-    ActiveWorkbook.Worksheets("Invent·rio").ListObjects("Tabela2").Sort.SortFields. _
+    ActiveWorkbook.Worksheets("Invent√°rio").ListObjects("Tabela2").Sort.SortFields. _
         Clear
-    ActiveWorkbook.Worksheets("Invent·rio").ListObjects("Tabela2").Sort.SortFields. _
+    ActiveWorkbook.Worksheets("Invent√°rio").ListObjects("Tabela2").Sort.SortFields. _
         Add Key:=Range("D2"), SortOn:=xlSortOnValues, Order:=xlAscending, _
         DataOption:=xlSortNormal
-    With ActiveWorkbook.Worksheets("Invent·rio").ListObjects("Tabela2").Sort
+    With ActiveWorkbook.Worksheets("Invent√°rio").ListObjects("Tabela2").Sort
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
         .SortMethod = xlPinYin
         .Apply
     End With
-    Sheets("Invent·rio").Select
+    Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-         li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
@@ -205,14 +188,14 @@ Private Sub Classificar1_Click()
 
 On Error GoTo en1
 
-Sheets("Invent·rio").Select
+Sheets("Invent√°rio").Select
     Range("D2").Select
-    ActiveWorkbook.Worksheets("Invent·rio").ListObjects("Tabela2").Sort.SortFields. _
+    ActiveWorkbook.Worksheets("Invent√°rio").ListObjects("Tabela2").Sort.SortFields. _
         Clear
-    ActiveWorkbook.Worksheets("Invent·rio").ListObjects("Tabela2").Sort.SortFields. _
+    ActiveWorkbook.Worksheets("Invent√°rio").ListObjects("Tabela2").Sort.SortFields. _
         Add Key:=Range("D2"), SortOn:=xlSortOnValues, Order:=xlDescending, _
         DataOption:=xlSortNormal
-    With ActiveWorkbook.Worksheets("Invent·rio").ListObjects("Tabela2").Sort
+    With ActiveWorkbook.Worksheets("Invent√°rio").ListObjects("Tabela2").Sort
         .Header = xlYes
         .MatchCase = False
         .Orientation = xlTopToBottom
@@ -221,23 +204,23 @@ Sheets("Invent·rio").Select
     End With
     
     
-    Sheets("Invent·rio").Select
+    Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-         li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
@@ -250,7 +233,7 @@ Application.ScreenUpdating = False
 
 Dim w As Worksheet
 
-Set w = Sheets("Invent·rio")
+Set w = Sheets("Invent√°rio")
 w.Select
 
 
@@ -265,23 +248,23 @@ InventaCamara.Value = ""
 InventaLote.Value = ""
 InventaPrazo.Value = ""
 
-    Sheets("Invent·rio").Select
+    Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-         li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-         li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+        Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+         li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
@@ -293,7 +276,7 @@ Application.ScreenUpdating = False
 
 Dim w As Worksheet
 
-Set w = Sheets("Invent·rio")
+Set w = Sheets("Invent√°rio")
 w.Select
 
     ActiveSheet.ListObjects("Tabela2").Range.AutoFilter Field:=1
@@ -323,23 +306,23 @@ ne:
             "=*" & InventaPrazo.Value & "*", Operator:=xlAnd
 
         
-    Sheets("Invent·rio").Select
+    Sheets("Invent√°rio").Select
     
     TabelaDeInventario.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+    Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-    Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-    li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+    Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+    li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     End If
         lin = lin + 1
     Loop
@@ -364,14 +347,14 @@ If IsNumeric(TextBox1.Value) = True Then
 End If
 
 If TextBox1.Value = "" Then
-    MsgBox "VocÍ esqueceu de digitar o nome!", , "Tente outra vez"
+    MsgBox "Voc√™ esqueceu de digitar o nome!", , "Tente outra vez"
     Application.ScreenUpdating = True
     Exit Sub
 End If
 
 Do While ActiveCell.Value <> ""
     If ActiveCell.Value = TextBox1.Value Then
-        MsgBox "Este produto j· existe!", , "Tente outra vez"
+        MsgBox "Este produto j√° existe!", , "Tente outra vez"
         EstoqueNomeItem.Value = ""
         EstoqueQuantInicial.Value = ""
         Application.ScreenUpdating = True
@@ -499,7 +482,7 @@ Application.ScreenUpdating = False
 veri = InputBox("Digite a senha para acessar a planilha:", "")
 
 If veri = "" Then
-    Sheets("MovimentaÁ„o").Select
+    Sheets("Movimenta√ß√£o").Select
     UserForm1.Hide
     Application.Visible = True
     Application.ScreenUpdating = True
@@ -525,7 +508,7 @@ On Error GoTo erro
 
 id = InputBox("Digite o ID do item: ", "")
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("F2").Select
 
@@ -539,7 +522,7 @@ Do While ActiveCell.Value <> ""
     ActiveCell.Offset(1, 0).Select
 Loop
 
-MsgBox "ID n„o encontrado, tente novamente!", , ""
+MsgBox "ID n√£o encontrado, tente novamente!", , ""
 
 erro:
 
@@ -551,7 +534,7 @@ Application.ScreenUpdating = False
 
 Dim w As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 
     ActiveSheet.ListObjects("Tabela3").Range.AutoFilter Field:=1
@@ -567,25 +550,25 @@ MovimentaQuant.Value = ""
 MovimentaData.Value = ""
 combocamara2.Value = ""
 
-    Sheets("MovimentaÁ„o").Select
+    Sheets("Movimenta√ß√£o").Select
     
-    TabelaDeMovimentaÁıes.ListItems.Clear
+    TabelaDeMovimenta√ß√µes.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("MovimentaÁ„o").Cells(lin, 1) = ""
+    Do Until Sheets("Movimenta√ß√£o").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeMovimentaÁıes.ListItems.Add(Text:=Sheets("MovimentaÁ„o").Cells(lin, 1).Value)
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 2).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 3).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 7).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 8).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 9).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 4).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 6).Value
+        Set li = TabelaDeMovimenta√ß√µes.ListItems.Add(Text:=Sheets("Movimenta√ß√£o").Cells(lin, 1).Value)
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 2).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 3).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 7).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 8).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 4).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 6).Value
     End If
         lin = lin + 1
     Loop
@@ -599,7 +582,7 @@ Application.ScreenUpdating = False
 
 Dim w As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 
     ActiveSheet.ListObjects("Tabela3").Range.AutoFilter Field:=1
@@ -631,25 +614,25 @@ ne:
     ActiveSheet.ListObjects("Tabela3").Range.AutoFilter Field:=9, Criteria1:= _
             "=*" & combocamara2.Value & "*", Operator:=xlAnd
         
-    Sheets("MovimentaÁ„o").Select
+    Sheets("Movimenta√ß√£o").Select
     
-    TabelaDeMovimentaÁıes.ListItems.Clear
+    TabelaDeMovimenta√ß√µes.ListItems.Clear
     
     
     lin = 2
     
-    Do Until Sheets("MovimentaÁ„o").Cells(lin, 1) = ""
+    Do Until Sheets("Movimenta√ß√£o").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
-        Set li = TabelaDeMovimentaÁıes.ListItems.Add(Text:=Sheets("MovimentaÁ„o").Cells(lin, 1).Value)
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 2).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 3).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 7).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 8).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 9).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 4).Value
-        li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 6).Value
+        Set li = TabelaDeMovimenta√ß√µes.ListItems.Add(Text:=Sheets("Movimenta√ß√£o").Cells(lin, 1).Value)
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 2).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 3).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 7).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 8).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 4).Value
+        li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 6).Value
     End If
         lin = lin + 1
     Loop
@@ -667,14 +650,14 @@ Application.ScreenUpdating = False
 Dim w   As Worksheet
 Dim w2  As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 Set w2 = Sheets("Estoque")
 
 w2.Select
 w2.Range("a2").Select
 
 If EstoqueBuscarItem.Value = "" Then
-   MsgBox "Este item n„o existe para ser alterado!"
+   MsgBox "Este item n√£o existe para ser alterado!"
    Application.ScreenUpdating = True
    Exit Sub
 End If
@@ -682,7 +665,7 @@ End If
 
 Do While ActiveCell.Value <> ""
     If ActiveCell.Value = EstoqueAlterarItem.Value Then
-        MsgBox "J· existe um item no invent·rio com esse nome!"
+        MsgBox "J√° existe um item no invent√°rio com esse nome!"
         Application.ScreenUpdating = True
         Exit Sub
     End If
@@ -725,7 +708,7 @@ w.Select
 w.Range("A2").Select
 
 If EstoqueBuscarItem.Value = "" Then
-   MsgBox "Este item n„o existe para ser deletado!"
+   MsgBox "Este item n√£o existe para ser deletado!"
    Application.ScreenUpdating = True
    Exit Sub
 End If
@@ -789,14 +772,14 @@ If IsNumeric(EstoqueNomeItem.Value) = True Then
 End If
 
 If EstoqueNomeItem.Value = "" Then
-    MsgBox "VocÍ esqueceu de digitar o nome!", , "Tente outra vez"
+    MsgBox "Voc√™ esqueceu de digitar o nome!", , "Tente outra vez"
     Application.ScreenUpdating = True
     Exit Sub
 End If
 
 Do While ActiveCell.Value <> ""
     If ActiveCell.Value = EstoqueNomeItem.Value Then
-        MsgBox "Este produto j· existe no invent·rio!", , "Tente outra vez"
+        MsgBox "Este produto j√° existe no invent√°rio!", , "Tente outra vez"
         EstoqueNomeItem.Value = ""
         EstoqueQuantInicial.Value = ""
         Application.ScreenUpdating = True
@@ -839,16 +822,16 @@ Dim w2 As Worksheet
 
 If txtquant.Value = 0 Then
 
-    MsgBox "A quantidade n„o pode ser zero", vbOKOnly, "AtenÁ„o!"
+    MsgBox "A quantidade n√£o pode ser zero", vbOKOnly, "Aten√ß√£o!"
     Application.ScreenUpdating = True
     Exit Sub
 End If
 
-'****************************Verifica a se h· itens o suficiente em estoque**********************************
+'****************************Verifica a se h√° itens o suficiente em estoque**********************************
 
 Dim g   As Worksheet
 
-Set g = Sheets("MovimentaÁ„o")
+Set g = Sheets("Movimenta√ß√£o")
 g.Select
 g.Range("a2").Select
 
@@ -861,7 +844,7 @@ Do While ActiveCell.Value <> ""
     If comboitem.Value = ActiveCell.Value And combocamara = ActiveCell.Offset(0, 8).Value And (Trim(Str(ActiveCell.Offset(0, 6).Value)) = Trim(Str(txtlote.Value))) = True Then
             If ActiveCell.Offset(0, 1).Value = "Entrada" Then
                 en = en + ActiveCell.Offset(0, 2).Value
-            ElseIf ActiveCell.Offset(0, 1).Value = "SaÌda" Then
+            ElseIf ActiveCell.Offset(0, 1).Value = "Sa√≠da" Then
                 sa = sa + ActiveCell.Offset(0, 2).Value
             End If
     Else
@@ -870,9 +853,9 @@ Do While ActiveCell.Value <> ""
     ActiveCell.Offset(1, 0).Select
 Loop
 sa = sa + txtquant.Value
-If combomovimenta = "SaÌda" Then
+If combomovimenta = "Sa√≠da" Then
     If en - sa < 0 Then
-        MsgBox "N„o h· itens o suficiente para essa saÌda!", , ""
+        MsgBox "N√£o h√° itens o suficiente para essa sa√≠da!", , ""
         Application.ScreenUpdating = True
         Exit Sub
     End If
@@ -880,11 +863,11 @@ End If
 '*************************************************************************************************************
 
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 
 If comboitem.Value = "" Or combomovimenta.Value = "" Or txtquant.Value = "" Or txtvali.Value = "" Or txtlote.Value = "" Or combocamara.Value = "" Then
 
-    MsgBox "Digite todos os dados!", vbOKOnly, "AtenÁ„o!"
+    MsgBox "Digite todos os dados!", vbOKOnly, "Aten√ß√£o!"
     Application.ScreenUpdating = True
     Exit Sub
 Else
@@ -951,10 +934,10 @@ Else
         
     End If
     
-    MsgBox "Processo concluÌdo!", vbOKOnly, "Tudo certo"
+    MsgBox "Processo conclu√≠do!", vbOKOnly, "Tudo certo"
 End If
 '==========================================================================================================
-Set w2 = Sheets("Invent·rio")
+Set w2 = Sheets("Invent√°rio")
 w2.Select
 w2.Range("a2").Select
 
@@ -992,7 +975,7 @@ Application.ScreenUpdating = True
 
 End Sub
 
-'Bot„o Deletar
+'Bot√£o Deletar
 Private Sub CommandButton12_Click() '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Application.ScreenUpdating = False
@@ -1003,7 +986,7 @@ Dim w2      As Worksheet
 
 If ComboBox1.Value = "" Then
 
-    MsgBox "Sem dados para deletar!", vbOKOnly, "AtenÁ„o!"
+    MsgBox "Sem dados para deletar!", vbOKOnly, "Aten√ß√£o!"
     Application.ScreenUpdating = True
     Exit Sub
     
@@ -1012,7 +995,7 @@ End If
 ident = Mid(ComboBox1.Value, InStrRev(ComboBox1.Value, "|") + 2, 30)
 
 
-Set w2 = Sheets("MovimentaÁ„o")
+Set w2 = Sheets("Movimenta√ß√£o")
 w2.Select
 w2.Range("A1028576").End(xlUp).Select
 
@@ -1044,7 +1027,7 @@ Application.ScreenUpdating = True
 
 End Sub
 
-'Bot„o Alterar
+'Bot√£o Alterar
 
 Private Sub CommandButton16_Click() '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1052,20 +1035,20 @@ Application.ScreenUpdating = False
 
 If ComboBox1.Value = "" Then
 
-    MsgBox "Sem dados para alterar!", vbOKOnly, "AtenÁ„o!"
+    MsgBox "Sem dados para alterar!", vbOKOnly, "Aten√ß√£o!"
     Application.ScreenUpdating = True
     Exit Sub
     
 End If
 
 If txtquant.Value = 0 Then
-    MsgBox "Digite uma quantidade v·lida", vbOKOnly, "AtenÁ„o!"
+    MsgBox "Digite uma quantidade v√°lida", vbOKOnly, "Aten√ß√£o!"
     txtquant.Value = ""
     Application.ScreenUpdating = True
     Exit Sub
 End If
 
-'****************************Verifica a se h· itens o suficiente em estoque**********************************
+'****************************Verifica a se h√° itens o suficiente em estoque**********************************
 
 Dim g   As Worksheet
 
@@ -1079,12 +1062,12 @@ Do While ActiveCell.Value <> comboitem.Value
     ActiveCell.Offset(1, 0).Select
 Loop
 
-If Mid(ComboBox1.Value, 1, InStr(ComboBox1.Value, "|") - 2) = "SaÌda" Then
+If Mid(ComboBox1.Value, 1, InStr(ComboBox1.Value, "|") - 2) = "Sa√≠da" Then
 
-    If combomovimenta.Value = "SaÌda" Then
+    If combomovimenta.Value = "Sa√≠da" Then
     
         If ActiveCell.Offset(0, 1).Value - ((ActiveCell.Offset(0, 2).Value - (Mid(ComboBox1, InStr(Mid(ComboBox1, 8, 30), "|") + 8, InStr(ComboBox1, "U") - 24))) + txtquant.Value) < 0 Then
-            MsgBox "VocÍ n„o tem " & comboitem.Value & " o suficiente para essa saÌda!", vbOKOnly, "AtenÁ„o"
+            MsgBox "Voc√™ n√£o tem " & comboitem.Value & " o suficiente para essa sa√≠da!", vbOKOnly, "Aten√ß√£o"
             txtquant.Value = ""
             Application.ScreenUpdating = True
             Exit Sub
@@ -1093,7 +1076,7 @@ If Mid(ComboBox1.Value, 1, InStr(ComboBox1.Value, "|") - 2) = "SaÌda" Then
     ElseIf combomovimenta.Value = "Entrada" Then
     
         If (ActiveCell.Offset(0, 1).Value + txtquant.Value) - (ActiveCell.Offset(0, 2).Value - txtquant.Value) < 0 Then
-            MsgBox "VocÍ n„o tem " & comboitem.Value & " o suficiente para essa saÌda!", vbOKOnly, "AtenÁ„o"
+            MsgBox "Voc√™ n√£o tem " & comboitem.Value & " o suficiente para essa sa√≠da!", vbOKOnly, "Aten√ß√£o"
             txtquant.Value = ""
             Application.ScreenUpdating = True
             Exit Sub
@@ -1104,11 +1087,11 @@ If Mid(ComboBox1.Value, 1, InStr(ComboBox1.Value, "|") - 2) = "SaÌda" Then
     
 ElseIf Mid(ComboBox1.Value, 1, InStr(ComboBox1.Value, "|") - 2) = "Entrada" Then
 
-    If combomovimenta.Value = "SaÌda" Then
+    If combomovimenta.Value = "Sa√≠da" Then
     
         If (ActiveCell.Offset(0, 1).Value - Mid(ComboBox1, InStr(Mid(ComboBox1, 10, 30), "|") + 10, InStr(ComboBox1, "U") - 26)) - (ActiveCell.Offset(0, 2).Value + txtquant.Value) < 0 Then
 
-            MsgBox "VocÍ n„o tem " & comboitem.Value & " o suficiente para essa saÌda!", vbOKOnly, "AtenÁ„o"
+            MsgBox "Voc√™ n√£o tem " & comboitem.Value & " o suficiente para essa sa√≠da!", vbOKOnly, "Aten√ß√£o"
             txtquant.Value = ""
             Application.ScreenUpdating = True
             Exit Sub
@@ -1126,7 +1109,7 @@ Dim w2      As Worksheet
 
 ident = Mid(ComboBox1.Value, InStrRev(ComboBox1.Value, "|") + 2, 30)
 
-Set w2 = Sheets("MovimentaÁ„o")
+Set w2 = Sheets("Movimenta√ß√£o")
 w2.Select
 w2.Range("A1028576").End(xlUp).Select
 
@@ -1162,7 +1145,7 @@ atualizacombos
 
 atualizalista
 
-MsgBox "Registro alterado com sucesso", vbOKOnly, "Processo concluÌdo!"
+MsgBox "Registro alterado com sucesso", vbOKOnly, "Processo conclu√≠do!"
 
 
 Application.ScreenUpdating = True
@@ -1189,7 +1172,7 @@ ident = Mid(ComboBox1.Value, InStrRev(ComboBox1.Value, "|") + 2, 30)
 
 
 
-Set w2 = Sheets("MovimentaÁ„o")
+Set w2 = Sheets("Movimenta√ß√£o")
 w2.Select
 w2.Range("A1028576").End(xlUp).Select
 
@@ -1223,7 +1206,7 @@ Application.ScreenUpdating = True
 End Sub
 
 '============================================================================================================
-'==========================================RESTRI«’ES DE ENTRADA=============================================
+'==========================================RESTRI√á√ïES DE ENTRADA=============================================
 '============================================================================================================
 
 Private Sub txtdata_BeforeUpdate(ByVal Cancel As MSForms.ReturnBoolean)
@@ -1303,7 +1286,7 @@ End Sub
 '============================================================================================================
 '============================================================================================================
 '============================================================================================================
-'=========================================SUBS REUTILIZ¡VEIS=================================================
+'=========================================SUBS REUTILIZ√ÅVEIS=================================================
 '============================================================================================================
 '============================================================================================================
 '============================================================================================================
@@ -1327,9 +1310,9 @@ InventaItem.Clear
 InventaCamara.Clear
 
 MovimentaMovi.AddItem "Entrada"
-MovimentaMovi.AddItem "SaÌda"
+MovimentaMovi.AddItem "Sa√≠da"
 combomovimenta.AddItem "Entrada"
-combomovimenta.AddItem "SaÌda"
+combomovimenta.AddItem "Sa√≠da"
 
 Dim w       As Worksheet
 Dim w2      As Worksheet
@@ -1356,7 +1339,7 @@ Do While ActiveCell.Value <> ""
     
 Loop
 
-Set w2 = Sheets("MovimentaÁ„o")
+Set w2 = Sheets("Movimenta√ß√£o")
 w2.Select
 w2.Range("A1028576").End(xlUp).Select
 
@@ -1394,23 +1377,23 @@ End Sub
 Sub atualizalista()
 Application.ScreenUpdating = False
 
-Sheets("MovimentaÁ„o").Select
+Sheets("Movimenta√ß√£o").Select
 
-TabelaDeMovimentaÁıes.ListItems.Clear
+TabelaDeMovimenta√ß√µes.ListItems.Clear
 
 
 lin = 2
 
-Do Until Sheets("MovimentaÁ„o").Cells(lin, 1) = ""
+Do Until Sheets("Movimenta√ß√£o").Cells(lin, 1) = ""
 
-    Set li = TabelaDeMovimentaÁıes.ListItems.Add(Text:=Sheets("MovimentaÁ„o").Cells(lin, 1).Value)
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 2).Value
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 3).Value
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 7).Value
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 8).Value
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 9).Value
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 4).Value
-    li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 6).Value
+    Set li = TabelaDeMovimenta√ß√µes.ListItems.Add(Text:=Sheets("Movimenta√ß√£o").Cells(lin, 1).Value)
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 2).Value
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 3).Value
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 7).Value
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 8).Value
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 4).Value
+    li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 6).Value
 
     lin = lin + 1
 Loop
@@ -1431,21 +1414,21 @@ Do Until Sheets("Estoque").Cells(lin, 1) = ""
     lin = lin + 1
 Loop
 
-Sheets("Invent·rio").Select
+Sheets("Invent√°rio").Select
 
 TabelaDeInventario.ListItems.Clear
 
 
 lin = 2
 
-Do Until Sheets("Invent·rio").Cells(lin, 1) = ""
+Do Until Sheets("Invent√°rio").Cells(lin, 1) = ""
 
-    Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent·rio").Cells(lin, 2).Value)
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 1).Value
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 3).Value
-    li.ListSubItems.Add Text:=Format(Sheets("Invent·rio").Cells(lin, 4).Value, "0 Meses")
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 5).Value
-    li.ListSubItems.Add Text:=Sheets("Invent·rio").Cells(lin, 8).Value
+    Set li = TabelaDeInventario.ListItems.Add(Text:=Sheets("Invent√°rio").Cells(lin, 2).Value)
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 1).Value
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 3).Value
+    li.ListSubItems.Add Text:=Format(Sheets("Invent√°rio").Cells(lin, 4).Value, "0 Meses")
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 5).Value
+    li.ListSubItems.Add Text:=Sheets("Invent√°rio").Cells(lin, 8).Value
     lin = lin + 1
 Loop
 colorir_list
@@ -1457,7 +1440,7 @@ Application.ScreenUpdating = False
 
 Dim w As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 
     ActiveSheet.ListObjects("Tabela3").Range.AutoFilter Field:=1
