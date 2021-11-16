@@ -1,20 +1,3 @@
-VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} UserForm2 
-   ClientHeight    =   7905
-   ClientLeft      =   45
-   ClientTop       =   390
-   ClientWidth     =   13380
-   OleObjectBlob   =   "UserForm2.frx":0000
-   StartUpPosition =   1  'CenterOwner
-End
-Attribute VB_Name = "UserForm2"
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = True
-Attribute VB_Exposed = False
-
-
-
 Private Sub Image2_Click()
 Application.ScreenUpdating = False
 
@@ -76,7 +59,7 @@ Selection.EntireColumn.Hidden = False
 
 End Sub
 
-Private Sub Análise_Envio_Change()
+Private Sub AnÃ¡lise_Envio_Change()
 Application.ScreenUpdating = False
 
 Dim linha  As Long
@@ -92,7 +75,7 @@ Selection.EntireColumn.Hidden = False
 Range("A2").Select
 
 Do While ActiveCell.Value <> ""
-If Trim(Mid(ActiveCell.Value, 1, 8)) = Análise_Envio.Value Then
+If Trim(Mid(ActiveCell.Value, 1, 8)) = AnÃ¡lise_Envio.Value Then
     Exit Do
 End If
 
@@ -115,11 +98,11 @@ Loop
 
 Range("A" & Va).Select
 
-Análise_Preço.Caption = Mid(ActiveCell.Offset(-1, 0).Value, InStr(ActiveCell.Offset(-1, 0).Value, "R$"), 30)
+AnÃ¡lise_PreÃ§o.Caption = Mid(ActiveCell.Offset(-1, 0).Value, InStr(ActiveCell.Offset(-1, 0).Value, "R$"), 30)
 
 ListView1.Refresh
 
-'===================Cria o cabeçalho da listview=============================
+'===================Cria o cabeÃ§alho da listview=============================
 
 With ListView1
     .BorderStyle = ccFixedSingle
@@ -285,7 +268,7 @@ Application.ScreenUpdating = True
 End Sub
 
 '===================================================================================================
-'=============================================Botões================================================
+'=============================================BotÃµes================================================
 '===================================================================================================
 Private Sub Bt_Deletar_Click()
 Application.ScreenUpdating = False
@@ -315,7 +298,7 @@ End Sub
 
 Private Sub Bt_Alterar_Click()
 If Text_Preco.Value = "" Then
-    MsgBox "Coloque um preço!", , ""
+    MsgBox "Coloque um preÃ§o!", , ""
     Exit Sub
 End If
 ActiveCell.Offset(-1, 0).Value = Mid(ActiveCell.Offset(-1, 0).Value, 1, InStr(ActiveCell.Offset(-1, 0).Value, ":") + 1) & Format(Text_Preco, "R$ #.00")
@@ -397,7 +380,7 @@ CommandButton1.Visible = False
 End Sub
 
 '===================================================================================================
-'============================================RESTRIÇÕES=============================================
+'============================================RESTRIÃ‡Ã•ES=============================================
 '===================================================================================================
 Private Sub Text_Preco_Enter()
 If Comboultimo.Value <> "" Then
@@ -491,7 +474,7 @@ Private Sub Combo_INVOICE_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
     If KeyAscii <> 1000 Then KeyAscii = 0
 End Sub
 
-Private Sub Análise_Envio_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+Private Sub AnÃ¡lise_Envio_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
     If KeyAscii <> 1000 Then KeyAscii = 0
 End Sub
 
@@ -501,7 +484,7 @@ End Sub
 
 '===================================================================================================
 '===================================================================================================
-'==========================================RESUTILIZÁVEIS===========================================
+'==========================================RESUTILIZÃVEIS===========================================
 '===================================================================================================
 '===================================================================================================
 
@@ -531,7 +514,7 @@ Do While ActiveCell.Value <> ""
 
     If Mid(ActiveCell.Value, 1, 2) = "En" Then
        Comboultimo.AddItem Trim(Mid(ActiveCell.Value, 1, 8))
-       Análise_Envio.AddItem Trim(Mid(ActiveCell.Value, 1, 8))
+       AnÃ¡lise_Envio.AddItem Trim(Mid(ActiveCell.Value, 1, 8))
     End If
 
 ActiveCell.Offset(1, 0).Select
@@ -598,7 +581,7 @@ Application.ScreenUpdating = False
 
 
 If Text_Preco.Value = "" Or Text_in1.Value = "" Or Text_in2.Value = "" Then
-    MsgBox "Por favor, preencha o preço e o intervalo do INVOICE!", , ""
+    MsgBox "Por favor, preencha o preÃ§o e o intervalo do INVOICE!", , ""
     Application.ScreenUpdating = True
     Exit Sub
 End If
@@ -617,7 +600,7 @@ w.Select
 w.Range("A2").Select
 
 If ActiveCell.Value = "" Then
-    ActiveCell.Value = "Envio 1" & " /" & Mid(Date, 7, 4) & " - Preço: " & Text_Preco
+    ActiveCell.Value = "Envio 1" & " /" & Mid(Date, 7, 4) & " - PreÃ§o: " & Text_Preco
     Range("A" & ActiveCell.Row & ":Y" & ActiveCell.Row).Borders(xlEdgeTop).LineStyle = xlContinuous
     Range("A" & ActiveCell.Row & ":Y" & ActiveCell.Row).Borders(xlEdgeTop).Weight = xlThick
 Else
@@ -626,7 +609,7 @@ Else
     ActiveCell.Offset(1, 0).Select
     
     Loop
-    ActiveCell.Value = Mid(Label1.Caption, 1, InStr(Label1.Caption, "-") - 2) & " /" & Mid(Date, 7, 4) & " - Preço: " & Text_Preco
+    ActiveCell.Value = Mid(Label1.Caption, 1, InStr(Label1.Caption, "-") - 2) & " /" & Mid(Date, 7, 4) & " - PreÃ§o: " & Text_Preco
     Range("A" & ActiveCell.Row & ":Y" & ActiveCell.Row).Borders(xlEdgeTop).LineStyle = xlContinuous
     Range("A" & ActiveCell.Row & ":Y" & ActiveCell.Row).Borders(xlEdgeTop).Weight = xlThick
 End If
