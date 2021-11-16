@@ -1,19 +1,3 @@
-VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Userform1 
-   ClientHeight    =   9570
-   ClientLeft      =   45
-   ClientTop       =   390
-   ClientWidth     =   13380
-   OleObjectBlob   =   "Userform1.frx":0000
-   StartUpPosition =   2  'CenterScreen
-End
-Attribute VB_Name = "Userform1"
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = True
-Attribute VB_Exposed = False
-
-
 Private Sub UserForm_Initialize()
 
 Text_PrazoDraft.Visible = False
@@ -49,20 +33,20 @@ Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
 End Sub
 
 '===================================================================================================
-'==============================================BOT’ES===============================================
+'==============================================BOT√ïES===============================================
 '===================================================================================================
 Private Sub VG_Mudar_Status_Click()
 Application.ScreenUpdating = False
 
 Dim w       As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("I1048576").End(xlUp).Select
 
 Do While ActiveCell.Value <> "INVOICE"
 
-If ActiveCell.Value = Combo_Previs„o.Value Then
+If ActiveCell.Value = Combo_Previs√£o.Value Then
 
     If ActiveCell.Offset(0, -1).Value = "Aguardando" Then
         ActiveCell.Offset(0, -1).Value = "Enviado"
@@ -97,7 +81,7 @@ If ComboBox1.Value = "Marca" Then
 w.Range("A2").Select
     Do While ActiveCell.Value <> ""
         If ActiveCell.Value = Adicionar_Nome.Value Then
-            MsgBox "J· existe uma marca com esse nome!", , ""
+            MsgBox "J√° existe uma marca com esse nome!", , ""
             Exit Sub
         End If
         ActiveCell.Offset(1, 0).Select
@@ -109,7 +93,7 @@ ElseIf ComboBox1.Value = "Agente" Then
 w.Range("B2").Select
 Do While ActiveCell.Value <> ""
         If ActiveCell.Value = Adicionar_Nome.Value Then
-            MsgBox "J· existe um agente com esse nome!", , ""
+            MsgBox "J√° existe um agente com esse nome!", , ""
         End If
         ActiveCell.Offset(1, 0).Select
     Loop
@@ -120,7 +104,7 @@ ElseIf ComboBox1.Value = "Armador" Then
 w.Range("C2").Select
 Do While ActiveCell.Value <> ""
         If ActiveCell.Value = Adicionar_Nome.Value Then
-            MsgBox "J· existe um armador com esse nome!", , ""
+            MsgBox "J√° existe um armador com esse nome!", , ""
         End If
         ActiveCell.Offset(1, 0).Select
     Loop
@@ -179,7 +163,7 @@ w.Range("A2").Select
                 ActiveCell.Value = Adicionar_Alterar_ProdutoTxt.Value
                 GoTo proximo1
             Else
-               MsgBox "O novo nome n„o pode ser vazio!", , ""
+               MsgBox "O novo nome n√£o pode ser vazio!", , ""
                Application.ScreenUpdating = True
                Exit Sub
             End If
@@ -193,7 +177,7 @@ w.Range("B2").Select
     Do While ActiveCell.Value <> ""
         If ActiveCell.Value = Adicionar_Alterar_AgenteCombo.Value Then
             If Adicionar_Alterar_AgenteTxt.Value = "" Then
-                MsgBox "O novo agente n„o pode ser vazio!", , ""
+                MsgBox "O novo agente n√£o pode ser vazio!", , ""
                 Application.ScreenUpdating = True
                 Exit Sub
             Else
@@ -210,7 +194,7 @@ w.Range("c2").Select
     Do While ActiveCell.Value <> ""
         If ActiveCell.Value = Adicionar_Alterar_ArmadorCombo.Value Then
             If Adicionar_Alterar_ArmadorTxt.Value = "" Then
-                MsgBox "O novo armador n„o pode ser vazio!", , ""
+                MsgBox "O novo armador n√£o pode ser vazio!", , ""
                 Application.ScreenUpdating = True
                 Exit Sub
             Else
@@ -258,7 +242,7 @@ End Sub
 
 
 Private Sub Pesquisar_bt_Limpar_Click()
-Combo_Previs„o.Clear
+Combo_Previs√£o.Clear
 Pesquisar_Marca.Value = ""
 TextBox1.Value = ""
 Pesquisar_Booking.Value = ""
@@ -274,9 +258,9 @@ Application.ScreenUpdating = False
 
 Dim w As Worksheet
 
-Combo_Previs„o.Clear
+Combo_Previs√£o.Clear
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 
    
@@ -338,21 +322,21 @@ End If
     
     lin = 2
     
-    Do Until Sheets("MovimentaÁ„o").Cells(lin, 1) = ""
+    Do Until Sheets("Movimenta√ß√£o").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
     
-        Set li = List_Pesquisar.ListItems.Add(Text:=Sheets("MovimentaÁ„o").Cells(lin, 8).Value)
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 4).Value
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 12).Value
-         li.ListSubItems.Add Text:=Format(Sheets("MovimentaÁ„o").Cells(lin, 13).Value, "hh:mm:ss")
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 15).Value
-         li.ListSubItems.Add Text:=Format(Sheets("MovimentaÁ„o").Cells(lin, 16).Value, "hh:mm:ss")
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 9).Value
+        Set li = List_Pesquisar.ListItems.Add(Text:=Sheets("Movimenta√ß√£o").Cells(lin, 8).Value)
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 4).Value
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 12).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Movimenta√ß√£o").Cells(lin, 13).Value, "hh:mm:ss")
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 15).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Movimenta√ß√£o").Cells(lin, 16).Value, "hh:mm:ss")
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
 
-        Combo_Previs„o.AddItem Sheets("MovimentaÁ„o").Cells(lin, 9).Value
+        Combo_Previs√£o.AddItem Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
     End If
         lin = lin + 1
     Loop
@@ -368,7 +352,7 @@ Private Sub Bt_Alterar_Click()
 Dim w   As Worksheet
 Dim l   As Long
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("a2").Select
 
@@ -426,14 +410,14 @@ proci:
                     If OptionButton1.Value = True Then
                         ActiveCell.Offset(0, 13) = "Enviado"
                     Else
-                        ActiveCell.Offset(0, 13) = "N„o enviado"
+                        ActiveCell.Offset(0, 13) = "N√£o enviado"
                     End If
                     ActiveCell.Offset(0, 14) = DT_Carga.Value
                     ActiveCell.Offset(0, 15) = DT_Hora_Carga.Value
                     If OptionButton3.Value = True Then
                         ActiveCell.Offset(0, 16) = "Enviado"
                     Else
-                        ActiveCell.Offset(0, 16) = "N„o enviado"
+                        ActiveCell.Offset(0, 16) = "N√£o enviado"
                     End If
                     
                     ActiveCell.Offset(0, 17) = DT_ETD.Value
@@ -457,7 +441,7 @@ Application.ScreenUpdating = False
 
 Dim w   As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("I2").Select
 
@@ -512,7 +496,7 @@ End If
 
 Dim w   As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("A2").Select
 
@@ -573,20 +557,20 @@ ActiveCell.Offset(-1, 0).Select
         If OptionButton1.Value = True Then
             ActiveCell.Offset(0, 13) = "Enviado"
         Else
-            ActiveCell.Offset(0, 13) = "N„o enviado"
+            ActiveCell.Offset(0, 13) = "N√£o enviado"
         End If
         ActiveCell.Offset(0, 14) = DT_Carga.Value
         ActiveCell.Offset(0, 15) = DT_Hora_Carga.Value
         If OptionButton3.Value = True Then
             ActiveCell.Offset(0, 16) = "Enviado"
         Else
-            ActiveCell.Offset(0, 16) = "N„o enviado"
+            ActiveCell.Offset(0, 16) = "N√£o enviado"
         End If
         
         ActiveCell.Offset(0, 17) = DT_ETD.Value
         ActiveCell.Offset(0, 18) = DT_ETA.Value
 
-MsgBox "Processo concluÌdo!", vbOKOnly, ""
+MsgBox "Processo conclu√≠do!", vbOKOnly, ""
 
 Atualizar_Combos
 
@@ -603,8 +587,8 @@ End Sub
 '===================================================================================================
 '==============================================LAYOUT===============================================
 '===================================================================================================
-Private Sub Combo_Previs„o_Change()
-If Combo_Previs„o.Value <> "" Then
+Private Sub Combo_Previs√£o_Change()
+If Combo_Previs√£o.Value <> "" Then
 Application.ScreenUpdating = False
 Prazo_Carga.Visible = True
 Prazo_Draft.Visible = True
@@ -612,21 +596,21 @@ VG_Mudar_Status.Visible = True
 
 Dim w       As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("I1048576").End(xlUp).Select
 
 Do While ActiveCell.Value <> ""
 
-If ActiveCell.Value = Combo_Previs„o.Value Then
+If ActiveCell.Value = Combo_Previs√£o.Value Then
 
     If ActiveCell.Offset(0, 5).Value = "" Then
-        Prazo_Draft.Value = "Draft n„o cadastrado!"
+        Prazo_Draft.Value = "Draft n√£o cadastrado!"
         GoTo tem1
     End If
     
     If ActiveCell.Offset(0, 5).Value = "Enviado" Then
-        Prazo_Draft.Value = "Draft j· enviado!"
+        Prazo_Draft.Value = "Draft j√° enviado!"
         GoTo tem1
     End If
 
@@ -653,12 +637,12 @@ If ActiveCell.Value = Combo_Previs„o.Value Then
 tem1:
             
 If ActiveCell.Offset(0, 8).Value = "" Then
-        Prazo_Carga.Value = "Carga n„o cadastrado!"
+        Prazo_Carga.Value = "Carga n√£o cadastrado!"
         Exit Sub
 End If
 
 If ActiveCell.Offset(0, 8).Value = "Enviado" Then
-        Prazo_Carga.Value = "Draft j· enviado!"
+        Prazo_Carga.Value = "Draft j√° enviado!"
         Exit Sub
 End If
 
@@ -872,7 +856,7 @@ Private Sub OptionButton3_Click()
 End Sub
 
 '===================================================================================================
-'============================================RESTRI«’ES=============================================
+'============================================RESTRI√á√ïES=============================================
 '===================================================================================================
 
 Private Sub Combo_Agente_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
@@ -916,12 +900,12 @@ Private Sub Adicionar_Nome_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
         Adicionar_Nome.MaxLength = 2
     End If
 End Sub
-Private Sub Combo_Previs„o_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+Private Sub Combo_Previs√£o_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
     If KeyAscii <> 1000 Then KeyAscii = 0
 End Sub
 
 '===================================================================================================
-'=========================================SUBS REUTILIZ¡VEIS========================================
+'=========================================SUBS REUTILIZ√ÅVEIS========================================
 '===================================================================================================
 
 Sub Atualizar_Combos()
@@ -931,7 +915,7 @@ Combo_Status.Clear
 Combo_Agente.Clear
 Combo_Armador.Clear
 Pesquisar_Status.Clear
-Combo_Previs„o.Clear
+Combo_Previs√£o.Clear
 
 Combo_Marca.Clear
 Adicionar_Alterar_AgenteCombo.Clear
@@ -981,7 +965,7 @@ Application.ScreenUpdating = False
     
 Dim w As Worksheet
 
-Set w = Sheets("MovimentaÁ„o")
+Set w = Sheets("Movimenta√ß√£o")
 w.Select
 w.Range("A1048576").End(xlUp).Select
 
@@ -1027,7 +1011,7 @@ Loop
 
 
 erro:
-MsgBox "ID n„o encontrado, tente novamente!", , ""
+MsgBox "ID n√£o encontrado, tente novamente!", , ""
 
 Application.ScreenUpdating = True
 End Sub
@@ -1056,7 +1040,7 @@ End Sub
 Sub atualizalista()
 Application.ScreenUpdating = False
 
-Sheets("MovimentaÁ„o").Select
+Sheets("Movimenta√ß√£o").Select
 
     ActiveSheet.ListObjects("Tabela1").Range.AutoFilter Field:=8
     ActiveSheet.ListObjects("Tabela1").Range.AutoFilter Field:=1
@@ -1070,16 +1054,16 @@ List_Pesquisar.ListItems.Clear
 
 lin = 2
 
-Do Until Sheets("MovimentaÁ„o").Cells(lin, 1) = ""
+Do Until Sheets("Movimenta√ß√£o").Cells(lin, 1) = ""
 
-    Set li = List_Pesquisar.ListItems.Add(Text:=Sheets("MovimentaÁ„o").Cells(lin, 8).Value)
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 4).Value
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 12).Value
-         li.ListSubItems.Add Text:=Format(Sheets("MovimentaÁ„o").Cells(lin, 13).Value, "hh:mm:ss")
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 15).Value
-         li.ListSubItems.Add Text:=Format(Sheets("MovimentaÁ„o").Cells(lin, 16).Value, "hh:mm:ss")
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 9).Value
+    Set li = List_Pesquisar.ListItems.Add(Text:=Sheets("Movimenta√ß√£o").Cells(lin, 8).Value)
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 4).Value
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 12).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Movimenta√ß√£o").Cells(lin, 13).Value, "hh:mm:ss")
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 15).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Movimenta√ß√£o").Cells(lin, 16).Value, "hh:mm:ss")
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
 
 
     lin = lin + 1
@@ -1093,25 +1077,25 @@ End Sub
 Sub atualizalista2()
 Application.ScreenUpdating = False
 
-Sheets("MovimentaÁ„o").Select
+Sheets("Movimenta√ß√£o").Select
 List_Pesquisar.ListItems.Clear
 
 
 lin = 2
 
-Do Until Sheets("MovimentaÁ„o").Cells(lin, 1) = ""
+Do Until Sheets("Movimenta√ß√£o").Cells(lin, 1) = ""
     
     If Cells(lin, 1).Rows.Hidden = False Then
     
     
-        Set li = List_Pesquisar.ListItems.Add(Text:=Sheets("MovimentaÁ„o").Cells(lin, 8).Value)
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 1).Value
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 4).Value
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 12).Value
-         li.ListSubItems.Add Text:=Format(Sheets("MovimentaÁ„o").Cells(lin, 13).Value, "hh:mm:ss")
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 15).Value
-         li.ListSubItems.Add Text:=Format(Sheets("MovimentaÁ„o").Cells(lin, 16).Value, "hh:mm:ss")
-         li.ListSubItems.Add Text:=Sheets("MovimentaÁ„o").Cells(lin, 9).Value
+        Set li = List_Pesquisar.ListItems.Add(Text:=Sheets("Movimenta√ß√£o").Cells(lin, 8).Value)
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 1).Value
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 4).Value
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 12).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Movimenta√ß√£o").Cells(lin, 13).Value, "hh:mm:ss")
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 15).Value
+         li.ListSubItems.Add Text:=Format(Sheets("Movimenta√ß√£o").Cells(lin, 16).Value, "hh:mm:ss")
+         li.ListSubItems.Add Text:=Sheets("Movimenta√ß√£o").Cells(lin, 9).Value
     End If
         lin = lin + 1
     Loop
